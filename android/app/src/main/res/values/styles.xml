@@ -4,8 +4,8 @@
     <!-- Customize your theme here. -->
     <!-- Main theme colors -->
     <!--   your app branding color for the app bar -->
-    <item name="android:colorPrimary">#000000</item>
+    <item name="android:colorPrimary">#FFFFFF</item>
     <!--   darker variant for the status bar and contextual app bars -->
-    <item name="android:colorPrimaryDark">#e1e7e0</item>
+    <item name="android:colorPrimaryDark">#A04B01</item>
   </style>
 </resources>

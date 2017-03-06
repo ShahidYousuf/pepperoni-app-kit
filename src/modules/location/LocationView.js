@@ -44,10 +44,22 @@ const LocationView = React.createClass({
     return (photo.prefix + '500x500' + photo.suffix);
   },
 
+  getRating() {
+    return (<Image
+              style={[styles.gradient, {top: 75}]}
+              source={require('../../../assets/gradient.png')}>
+            <View style={[styles.ratingView, this.getRatingStyles()]}>
+              <Text style={styles.rating}>{this.props.place.rating}</Text>
+            </View>
+            </Image>);
+  },
+
   getImage() {
     return (this.props.place.photos && this.props.place.photos.count && this.props.place.photos.count > 0)
-      ? (<Image style={styles.image} source={{uri: this.buildPhotosURL()}}/>)
-      : (<View/>);
+      ? (<Image style={styles.image} source={{uri: this.buildPhotosURL()}}>
+          {this.getRating()}
+          </Image>)
+      : (this.getRating());
   },
 
   getPrice() {
@@ -57,7 +69,7 @@ const LocationView = React.createClass({
         price += this.props.place.price.currency;
       }
     }
-    return price;
+    return price + '\n';
   },
 
   getCategories() {
@@ -116,24 +128,21 @@ const LocationView = React.createClass({
     return (
       <View style={styles.container}>
       <ScrollView>
-        {this.getImage()}
+        <View>
+          {this.getImage()}
+        </View>
         <View style={styles.cardInfo}>
-          <View style={[styles.ratingView, this.getRatingStyles()]}>
-            <Text style={styles.rating}>
-              {this.props.place.rating}
-            </Text>
-          </View>
           <Text numberOfLines={2} style={styles.title}>
             {this.props.place.name}
-          </Text>
-          <Text numberOfLines={2} style={styles.text}>
-            {this.getAddress()}
           </Text>
           <Text style={styles.text}>
             {this.getCategories()}
           </Text>
           <Text style={styles.text}>
             {this.getPrice()}
+          </Text>
+          <Text numberOfLines={2} style={styles.text}>
+            {this.getAddress()}
           </Text>
           <Text style={styles.text}>
             {this.getHours()}
@@ -144,7 +153,7 @@ const LocationView = React.createClass({
         </View>
         <View style={styles.buttonContainer}>
           <Button
-            text='Yeah, take me there!'
+            text='YEAH, TAKE ME THERE!'
             style={theme.buttons.primary}
             textStyle={theme.fonts.primary}
             action={() => Linking.openURL(this.getLinkURL())
@@ -152,7 +161,7 @@ const LocationView = React.createClass({
         </View>
         <View style={styles.buttonContainer}>
           <Button
-            text='Nah, try another one'
+            text='NAH, TRY ANOTHER ONE'
             style={theme.buttons.secondary}
             textStyle={theme.fonts.secondary}
             action={this.onNextPress} />
@@ -175,8 +184,7 @@ const styles = StyleSheet.create({
   },
   title: {
     ...spacing,
-    ...theme.fonts.h3,
-    margin: 8
+    ...theme.fonts.h3
   },
   text: {
     ...spacing,
@@ -200,32 +208,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  gradient: {
+    height: 50,
+    width: window.width
+  },
   cardInfo: {
+    flex: 1,
     backgroundColor: theme.colors.selectedTab
   },
   ratingView: {
-    ...Platform.select({
-      ios: {
-        top: -20,
-        paddingTop: 6,
-        left: (window.width / 2) - 20
-      },
-      android: {
-        top: 6,
-        left: window.width - 46
-      }
-    }),
+    top: 0,
+    left: 20,
     backgroundColor: 'transparent', // default backgroundColor
-    width: 40,
-    height: 40,
-    borderRadius: 20
+    width: 80,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   rating: {
-    ...Platform.select({
-      android: {
-        top: 4
-      }
-    }),
     textAlign: 'center',
     textAlignVertical: 'center',
     ...theme.fonts.h3,

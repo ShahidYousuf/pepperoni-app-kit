@@ -2,25 +2,27 @@ const palette = {
   teal: '#39BABD',
   darkTeal: '#2DB1B5',
   lightTeal: '#e1e7e0',
-  orange: '#FF821E',
+  orange: '#FF7700',
   darkBlue: '#003441',
   grey: '#929292',
   lightGrey: '#D1D1D1',
   sand: '#F2EEE6',
-  darkSand: '#efebe3'
+  darkSand: '#efebe3',
+  turquoise: '#45BABD',
+  turquoiseDark: '#34A3A6',
+  white: '#FFFFFF'
 };
 
 export const colors = {
-  button: palette.orange,
-  background: palette.sand,
-  text: palette.darkBlue,
+  button: palette.white,
+  background: palette.turquoise,
+  text: palette.white,
+  navigation: palette.orange,
   bullet: palette.lightGrey,
-  selectedBullet: palette.teal,
-  tabBorder: palette.grey,
-  tab: palette.darkSand,
-  tabText: palette.grey,
-  selectedTab: palette.lightTeal,
-  selectedTabText: palette.teal
+  selectedBullet: palette.white,
+  tab: palette.turquoiseDark,
+  tabText: palette.turquoise,
+  selectedTabText: palette.white
 };
 
 export const buttons = {
@@ -69,7 +71,7 @@ export const fonts = {
     fontFamily: 'System'
   },
   primary: {
-    color: 'white'
+    color: colors.background
   },
   secondary: {
     color: colors.button

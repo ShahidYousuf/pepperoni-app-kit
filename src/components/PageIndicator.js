@@ -40,17 +40,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   bullet: {
-    margin: 6,
+    margin: 4,
     backgroundColor: theme.colors.bullet,
+    width: 4,
+    height: 4,
+    borderRadius: 2
+  },
+  selectedBullet: {
+    margin: 6,
+    backgroundColor: theme.colors.selectedBullet,
     width: 8,
     height: 8,
     borderRadius: 4
-  },
-  selectedBullet: {
-    margin: 8,
-    backgroundColor: theme.colors.selectedBullet,
-    width: 12,
-    height: 12,
-    borderRadius: 6
   }
 });

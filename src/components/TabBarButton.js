@@ -20,11 +20,11 @@ export default React.createClass({
     var iconImage = '';
     if (Platform.OS === 'ios') {
       iconImage = (this.props.text === 'Where to eat')
-        ? 'ios-pizza'
+        ? 'ios-restaurant'
         : 'ios-information-circle';
     } else {
       iconImage = (this.props.text === 'Where to eat')
-        ? 'md-pizza'
+        ? 'md-restaurant'
         : 'md-information-circle';
     }
     var iconColor = this.props.isSelected ? theme.colors.selectedTabText : theme.colors.tabText;
@@ -52,18 +52,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    borderTopWidth: 1,
-    borderTopColor: theme.colors.tabBorder,
-    borderLeftWidth: 1,
-    borderLeftColor: theme.colors.tabBorder,
     backgroundColor: theme.colors.tab
-  },
-  selected: {
-    backgroundColor: theme.colors.selectedTab
   },
   text: {
     color: theme.colors.tabText,
-    fontSize: 14,
+    fontSize: 10,
     fontFamily: 'System'
   },
   selectedText: {

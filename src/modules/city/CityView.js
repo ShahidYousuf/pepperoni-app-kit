@@ -53,7 +53,7 @@ const CityView = React.createClass({
             selectedIndex={+index}
             style={styles.pageIndicator} />
           <Button
-              text="What's for lunch?"
+              text="WHAT'S FOR LUNCH?"
               style={theme.buttons.primary}
               textStyle={theme.fonts.primary}
               action={() => this.selectOffice(offices[index])} />
@@ -65,8 +65,8 @@ const CityView = React.createClass({
         <TouchableOpacity onPress={() => this.selectOffice(offices[index])}>
           <Image source={{uri: rowData.picture}} style={styles.image} />
         </TouchableOpacity>
-        <Text style={[theme.fonts.h1, styles.title]}>
-          {rowData.city}
+        <Text style={[theme.fonts.h2, styles.title]}>
+          {rowData.city.toUpperCase()}
         </Text>
         {androidView}
       </View>
@@ -104,7 +104,7 @@ const CityView = React.createClass({
             selectedIndex={this.props.position}
             style={styles.pageIndicator} />
           <Button
-              text="What's for lunch?"
+              text="WHAT'S FOR LUNCH?"
               style={theme.buttons.primary}
               textStyle={theme.fonts.primary}
               action={() => this.selectOffice(offices[this.props.position])} />
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     width: window.width,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginTop: 10
+    marginTop: 30
   },
   spinner: {
     position: 'absolute',
@@ -158,24 +158,26 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,.7)'
   },
   image: {
-    height: 250,
-    width: 250,
-    borderRadius: 125,
-    borderWidth: 6,
-    borderColor: theme.colors.bullet
+    height: 200,
+    width: 200,
+    borderRadius: 100,
+    borderWidth: 2,
+    borderColor: theme.colors.tab
   },
   container: {
     flex: 1,
     backgroundColor: theme.colors.background
   },
   title: {
-    margin: 10
+    marginTop: 30,
+    fontWeight: '500'
   },
   pageIndicator: {
-    margin: 10
+    marginBottom: 30
   },
   buttonsContainer: {
-    margin: 20
+    marginBottom: 40,
+    margin: 10
   }
 });
 

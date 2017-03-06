@@ -2,7 +2,8 @@ import React, {PropTypes} from 'react';
 import {
   NavigationExperimental,
   View,
-  StyleSheet
+  StyleSheet,
+  Text
 } from 'react-native';
 const {
   CardStack: NavigationCardStack,
@@ -42,13 +43,13 @@ const NavigationView = React.createClass({
         {...sceneProps}
         onNavigateBack={this.props.onNavigateBack}
         style={{
-          backgroundColor: theme.colors.background,
+          backgroundColor: theme.colors.navigation,
           borderBottomWidth: 0
         }}
         renderTitleComponent={() => {
           return (
             <NavigationHeader.Title>
-              {sceneProps.scene.route.title}
+              <Text style={styles.title}> {sceneProps.scene.route.title} </Text>
             </NavigationHeader.Title>
           );
         }}
@@ -95,6 +96,9 @@ const styles = StyleSheet.create({
   sceneContainer: {
     flex: 1,
     marginBottom: TAB_BAR_HEIGHT
+  },
+  title: {
+    color: theme.colors.text
   }
 });
 
